@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div>
       <header className="p-4 text-white bg-black bg-opacity-40 fixed w-full z-10">
-        <div className="container flex justify-between h-16 mx-auto">
+        <div className="flex justify-between h-16 mx-auto">
           <NavLink
             rel="noopener noreferrer"
             href="#"

@@ -7,9 +7,11 @@ import Footer from "./Footer/Footer";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="container max-lg:auto">
       <Header />
+
       <HomeCarousel />
+
       <Home />
       <hr />
       <Footer />
