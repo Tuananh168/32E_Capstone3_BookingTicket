@@ -3,6 +3,7 @@ import { Carousel } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { getCarouselAction } from "../../redux/actions/CarouselActions";
+import "./HomeCarousel.css";
 
 const HomeCarousel = (props) => {
   const { arrImg } = useSelector((state) => state.CarouselReducer);
@@ -22,9 +23,8 @@ const HomeCarousel = (props) => {
     textAlign: "center",
     background: "#364d79",
     backgroundPosition: "center",
-    backgroundSize: "100%",
+    backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    // height: "100%",
   };
 
   const renderCarousel = () => {
@@ -32,9 +32,10 @@ const HomeCarousel = (props) => {
       return (
         <div key={index}>
           <div
+            className="slick-dots-bottom"
             style={{ ...contentStyle, backgroundImage: `url(${item.hinhAnh})` }}
           >
-            <img src={item.hinhAnh} alt="123" className="w-full opacity-0" />
+            {/* <img src={item.hinhAnh} alt="123" className="w-full opacity-0" /> */}
           </div>
         </div>
       );
