@@ -4,10 +4,11 @@ import HomeCarousel from "./HomeCarousel/HomeCarousel";
 import HomeMenu from "../pages/Home/HomeMenu/HomeMenu";
 import Home from "../pages/Home/Home";
 import Footer from "./Footer/Footer";
+import "./MainLayout.css";
 
 const MainLayout = () => {
   return (
-    <div className="container max-lg:auto">
+    <div>
       <Header />
 
       <HomeCarousel />

@@ -22,8 +22,7 @@ const Header = () => {
               <NavLink
                 rel="noopener noreferrer"
                 to="/Home"
-                className="flex items-center px-4 -mb-1 dark:border-transparent dark:border-violet-400 text-white"
-                activeClassName="border-b-1"
+                className="flex items-center px-4 -mb-1 dark:border-transparent text-white text-xl hover:text-orange-500"
               >
                 Home
               </NavLink>
@@ -32,8 +31,7 @@ const Header = () => {
               <NavLink
                 rel="noopener noreferrer"
                 to="/Contact"
-                className="flex items-center px-4 -mb-1 dark:border-transparent text-white"
-                activeClassName="border-b-1"
+                className="flex items-center px-4 -mb-1 dark:border-transparent text-white text-xl hover:text-orange-500"
               >
                 Contact
               </NavLink>
@@ -42,8 +40,7 @@ const Header = () => {
               <NavLink
                 rel="noopener noreferrer"
                 to="/News"
-                className="flex items-center px-4 -mb-1 dark:border-transparent text-white"
-                activeClassName="border-b-1"
+                className="flex items-center px-4 -mb-1 dark:border-transparent text-white text-xl hover:text-orange-500"
               >
                 News
               </NavLink>
@@ -51,9 +48,6 @@ const Header = () => {
           </ul>
           <div className="items-center flex-shrink-0 hidden lg:flex">
             <button className="self-center px-8 py-3 rounded">Sign in</button>
-            <button className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">
-              Sign up
-            </button>
           </div>
           <button className="p-4 lg:hidden">
             <svg

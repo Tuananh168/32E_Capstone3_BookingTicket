@@ -31,8 +31,7 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
         }
         case SET_PHIM_DANG_CHIEU: {
             state.dangChieu = !state.dangChieu
-            console.log("dang chiếu", state.dangChieu);
-            console.log("Phim", state.arrFilmDefault);
+
             state.arrFilm = state.arrFilmDefault.filter(film => film.dangChieu === state.dangChieu)
             return { ...state }
         }
