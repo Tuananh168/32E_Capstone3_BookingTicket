@@ -25,6 +25,7 @@ const HomeCarousel = (props) => {
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
+    width: "100%",
   };
 
   const renderCarousel = () => {
