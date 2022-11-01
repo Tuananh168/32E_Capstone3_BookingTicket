@@ -76,10 +76,15 @@ const HomeMenu = (props) => {
                     />
                   </div>
                   <div>
-                    <h1 className="text-xl font-bold ml-3">{phim.tenPhim}</h1>
+                    <span className="mr-1 font-bold bg-red-600 px-2 py-1 rounded-lg text-white text-sm ml-3">
+                      C18
+                    </span>
+                    <h1 className="text-xl font-bold ml-1 inline-block mt-2">
+                      {phim.tenPhim}
+                    </h1>
                     <div className="grid grid-cols-5 gap-0.5">
                       {phim.lstLichChieuTheoPhim
-                        ?.slice(0, 10)
+                        ?.slice(0, 5)
                         .map((lichChieu, index) => {
                           return (
                             <NavLink
