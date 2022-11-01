@@ -8,9 +8,15 @@ const Film_Flip = (props) => {
       <div className="main_card">
         <div className="card_left">
           <div className="card_datails">
-            <h1 className="font-bold" style={{ height: "100px" }}>
+            <span className="mr-1 font-bold bg-red-600 px-2 py-1 rounded-lg text-white text-lg">
+              C18
+            </span>
+            <h2
+              className="font-bold text-xl py-4 text-black inline-block"
+              style={{ height: "80px" }}
+            >
               {item.tenPhim}
-            </h1>
+            </h2>
             <div className="card_cat">
               <p className="PG">PG - 13</p>
               <p className="year">2018</p>
