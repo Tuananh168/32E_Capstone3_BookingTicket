@@ -88,7 +88,7 @@ const HomeMenu = (props) => {
                         .map((lichChieu, index) => {
                           return (
                             <NavLink
-                              className="ml-3 border border-2 border-black rounded-xl py-1 bg-orange-300 text-black m-0 hover:bg-orange-400 hover:text-black"
+                              className="ml-3 border border-2 border-black rounded-xl py-1 bg-orange-300 text-black m-0 hover:bg-orange-400 hover:text-black text-center font-bold"
                               to="/"
                               key={index}
                             >
