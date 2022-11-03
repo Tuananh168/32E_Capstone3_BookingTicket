@@ -20,8 +20,9 @@ const Header = () => {
           <ul className="items-stretch hidden space-x-3 lg:flex">
             <li className="flex">
               <NavLink
+                aria-current="page"
                 rel="noopener noreferrer"
-                to="/Home"
+                to="/home"
                 className="flex items-center px-4 -mb-1 dark:border-transparent text-white text-xl hover:text-orange-500"
               >
                 Home
@@ -30,7 +31,7 @@ const Header = () => {
             <li className="flex">
               <NavLink
                 rel="noopener noreferrer"
-                to="/Contact"
+                to="/contact"
                 className="flex items-center px-4 -mb-1 dark:border-transparent text-white text-xl hover:text-orange-500"
               >
                 Contact
@@ -39,7 +40,7 @@ const Header = () => {
             <li className="flex">
               <NavLink
                 rel="noopener noreferrer"
-                to="/News"
+                to="/news"
                 className="flex items-center px-4 -mb-1 dark:border-transparent text-white text-xl hover:text-orange-500"
               >
                 News

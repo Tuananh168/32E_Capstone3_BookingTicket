@@ -1,20 +1,18 @@
 import React from "react";
 import Header from "./Header/Header";
-import HomeCarousel from "./HomeCarousel/HomeCarousel";
-import HomeMenu from "../pages/Home/HomeMenu/HomeMenu";
 import Home from "../pages/Home/Home";
 import Footer from "./Footer/Footer";
 import "./MainLayout.css";
+import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
     <div>
       <Header />
-
-      <HomeCarousel />
-
-      <Home />
-      <hr />
+      <main>
+        {/* <Home /> */}
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );

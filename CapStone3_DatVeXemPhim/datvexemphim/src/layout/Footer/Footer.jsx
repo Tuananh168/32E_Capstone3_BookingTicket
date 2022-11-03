@@ -8,7 +8,7 @@ const Footer = () => {
   const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) =>
     _.pick(heThongRap, ["maHeThongRap", "tenHeThongRap", "logo"])
   );
-  console.log("arr", arrHeThongRap);
+
   return (
     <div>
       <footer className="py-6 dark:bg-gray-800 dark:text-gray-50 bg-gray-800 text-white">
@@ -43,8 +43,8 @@ const Footer = () => {
                 MOBIE APP
               </p>
               <div className="text-center">
-                <i class="fa-brands fa-apple mr-3 text-2xl"></i>
-                <i class="fa-brands fa-android text-2xl"></i>
+                <i className="fa-brands fa-apple mr-3 text-2xl"></i>
+                <i className="fa-brands fa-android text-2xl"></i>
               </div>
             </div>
             <div className="col-span-4 text-center md:text-left md:col-span-2">
@@ -52,8 +52,8 @@ const Footer = () => {
                 SOCIAL
               </p>
               <div className="text-center">
-                <i class="fa-brands fa-facebook mr-3 text-2xl"></i>
-                <i class="fa-brands fa-twitter text-2xl"></i>
+                <i className="fa-brands fa-facebook mr-3 text-2xl"></i>
+                <i className="fa-brands fa-twitter text-2xl"></i>
               </div>
             </div>
           </div>
