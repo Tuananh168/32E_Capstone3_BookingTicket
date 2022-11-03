@@ -4,7 +4,7 @@ import "@tsamantanis/react-glassmorphism/dist/index.css";
 import "../../assets/style_circle/circle.css";
 import { Radio, Space, Tabs } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useParams } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import { SET_CHI_TIET_PHIM } from "../../redux/types/QuanLyRapType";
 import { layThongTinChiTietPhim } from "../../redux/actions/QuanLyRapActions";
 import moment from "moment";
@@ -81,16 +81,88 @@ const Detail = (props) => {
             </span>
           </div>
         </div>
-        <div className="mt-[100px] container px-20">
-          <Tabs tabPosition={"left"}>
-            <TabPane tab="Tab 1" key="1">
-              Abc
+        <div
+          className="mt-[100px] container w-2/3 mx-auto rounded-lg bg-white"
+          style={{ minHeight: 500 }}
+        >
+          <Tabs tabPosition={"top"}>
+            <TabPane
+              tab={
+                <p className="text-red-600 text-xl flex justify-center items-center">
+                  Lịch Chiếu
+                </p>
+              }
+              key={"1"}
+            >
+              <Tabs tabPosition={"left"}>
+                {filmDetail.heThongRapChieu?.map((item, index) => {
+                  return (
+                    <TabPane
+                      tab={
+                        <div className="grid gird-cols-2">
+                          <img src={item.logo} alt={item.logo} width={50} />
+                          <div className="col-start-2 ml-2 text-xl text-black flex self-center">
+                            {item.tenHeThongRap}
+                          </div>
+                        </div>
+                      }
+                      key={index}
+                    >
+                      {item.cumRapChieu?.map((cumRap, index) => {
+                        return (
+                          <div>
+                            <div className="flex">
+                              <img
+                                className="mr-2"
+                                src={item.logo}
+                                alt={item.logo}
+                                width={50}
+                              />
+                              <div className="leading-[2px]">
+                                <h2
+                                  className="text-xl font-bold text-left"
+                                  key={index}
+                                >
+                                  {cumRap.tenCumRap}
+                                </h2>
+                                <p style={{ fontSize: 12 }}>{cumRap.diaChi}</p>
+                              </div>
+                            </div>
+                            <div className="grid grid-cols-4 mt-4 ">
+                              {cumRap.lichChieuPhim?.map((lichChieu, index) => {
+                                return (
+                                  <NavLink
+                                    to="/"
+                                    key={index}
+                                    className="col-span-1 ml-3 border border-2 border-black rounded-xl py-1 bg-orange-300 text-black m-0 hover:bg-orange-400 hover:text-black w-1/3 text-center font-bold"
+                                  >
+                                    {moment(lichChieu.ngayChieuGioChieu).format(
+                                      "hh:mm A"
+                                    )}
+                                  </NavLink>
+                                );
+                              })}
+                            </div>
+                            <hr />
+                          </div>
+                        );
+                      })}
+                    </TabPane>
+                  );
+                })}
+              </Tabs>
             </TabPane>
-            <TabPane tab="Tab 2" key="2">
-              nagna
+            <TabPane
+              tab={<p className="text-red-600 text-xl">Thông Tin</p>}
+              key={"2"}
+            >
+              Thông tin phim
             </TabPane>
-            <TabPane tab="Tab 3" key="3">
-              gagag
+            <TabPane
+              tab={<p className="text-red-600 text-xl">Đánh Giá</p>}
+              key={"3"}
+            >
+              Đánh Giá
             </TabPane>
           </Tabs>
         </div>
