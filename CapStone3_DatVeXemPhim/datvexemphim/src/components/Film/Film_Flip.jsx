@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Film_Flip.css";
 
 const Film_Flip = (props) => {
   const { item } = props;
+  const navigate = useNavigate();
   return (
     <div className="wrapper">
       <div className="main_card">
@@ -37,8 +39,8 @@ const Film_Flip = (props) => {
                 <i className="fas fa-play" /> SEE TRAILER
               </button>
               {/* GET*/}
-              <button>
-                <i class="fa-solid fa-ticket"></i> Đặt vé
+              <button onClick={() => navigate(`/detail/${item.maPhim}`)}>
+                <i className="fa-solid fa-ticket" /> Đặt vé
               </button>
               {/*USERS RATINGS*/}
               <button>
@@ -46,7 +48,7 @@ const Film_Flip = (props) => {
               </button>
               <button>
                 {item.danhGia}
-                <i class="fas fa-star"></i>
+                <i className="fas fa-star" />
               </button>
             </div>
           </div>

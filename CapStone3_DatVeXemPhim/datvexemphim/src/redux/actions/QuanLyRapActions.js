@@ -1,5 +1,5 @@
 import { quanLyRapService } from "../../services/QuanLyRapService";
-import { SET_HE_THONG_RAP } from "../types/QuanLyRapType";
+import { SET_CHI_TIET_PHIM, SET_HE_THONG_RAP } from "../types/QuanLyRapType";
 
 
 export const layDanhSachHeThongRapAction = () => {
@@ -22,4 +22,22 @@ export const layDanhSachHeThongRapAction = () => {
             console.log("error", errors);
         }
     }
+}
+
+export const layThongTinChiTietPhim = (id) => {
+    return async dispatch => {
+        try {
+            const result = await quanLyRapService.layThongTinLichChieuPhim(id)
+            console.log("result", result);
+
+            dispatch({
+                type: SET_CHI_TIET_PHIM,
+                filmDetail: result.data.content
+            })
+
+        } catch (error) {
+            console.log("error", error.response?.data);
+        }
+    }
+
 }
