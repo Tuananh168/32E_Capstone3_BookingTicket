@@ -111,7 +111,7 @@ const Detail = (props) => {
                       {item.cumRapChieu?.map((cumRap, index) => {
                         return (
                           <div>
-                            <div className="flex">
+                            <div className="flex mt-4">
                               <img
                                 className="mr-2"
                                 src={item.logo}
@@ -128,7 +128,7 @@ const Detail = (props) => {
                                 <p style={{ fontSize: 12 }}>{cumRap.diaChi}</p>
                               </div>
                             </div>
-                            <div className="grid grid-cols-4 mt-4 ">
+                            <div className="grid grid-cols-4 mt-2">
                               {cumRap.lichChieuPhim?.map((lichChieu, index) => {
                                 return (
                                   <NavLink
