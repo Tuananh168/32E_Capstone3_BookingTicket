@@ -16,7 +16,7 @@ export class baseService {
             url: `${DOMAIN}${url}`,
             method: "POST",
             data: model,
-            headers: { "Authorization": "Bearer" + localStorage.getItem(TOKEN) }
+            headers: { "TokenCyberSoft": TOKEN }
         })
     }
 
