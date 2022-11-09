@@ -24,6 +24,12 @@ const Header = () => {
             >
               Register
             </Link>
+            <Link
+              to="/admin"
+              className="self-center px-2 py-3 rounded  text-white hover:text-white"
+            >
+              Admin
+            </Link>
           </div>
         </Fragment>
       );
