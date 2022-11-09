@@ -35,18 +35,21 @@ const Film_Flip = (props) => {
 
             <div className="social-btn">
               {/* WATCH TRAILER*/}
-              <button>
+              <button className="film_button">
                 <i className="fas fa-play" /> SEE TRAILER
               </button>
               {/* GET*/}
-              <button onClick={() => navigate(`/detail/${item.maPhim}`)}>
+              <button
+                className="film_button"
+                onClick={() => navigate(`/detail/${item.maPhim}`)}
+              >
                 <i className="fa-solid fa-ticket" /> Đặt vé
               </button>
               {/*USERS RATINGS*/}
-              <button>
+              <button className="film_button">
                 <i className="fas fa-thumbs-up" /> 97%
               </button>
-              <button>
+              <button className="film_button">
                 {item.danhGia}
                 <i className="fas fa-star" />
               </button>

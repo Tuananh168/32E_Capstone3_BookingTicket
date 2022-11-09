@@ -1,12 +1,59 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
+import _ from "lodash";
+import { TOKEN, USER_LOGIN } from "../../util/settings/config";
 
 const Header = () => {
+  const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
+
+  const renderLogin = () => {
+    if (_.isEmpty(userLogin)) {
+      return (
+        <Fragment>
+          <div className="items-center flex-shrink-0 hidden lg:flex">
+            <Link
+              to="/login"
+              className="self-center px-2 py-3 rounded  text-white  hover:text-white"
+            >
+              Sign in
+            </Link>
+            <Link
+              to="/register"
+              className="self-center px-2 py-3 rounded  text-white hover:text-white"
+            >
+              Register
+            </Link>
+          </div>
+        </Fragment>
+      );
+    }
+    return (
+      <div className="">
+        <button to="/profile">
+          <div className="h-[40px] w-[40px] rounded-full bg-yellow-500 text-2xl text-center mr-1">
+            {userLogin.taiKhoan.substr(0, 1)}
+          </div>
+          Hello ! {userLogin.taiKhoan}
+        </button>
+        <button
+          onClick={() => {
+            localStorage.removeItem(USER_LOGIN);
+            localStorage.removeItem(TOKEN);
+          }}
+        >
+          Đăng xuất
+        </button>
+      </div>
+    );
+  };
+
   return (
     <div>
       <header className="p-4 text-white bg-black bg-opacity-40 fixed w-full z-10">
         <div className="flex justify-between h-16 mx-auto">
           <NavLink
+            to="/"
             rel="noopener noreferrer"
             href="#"
             aria-label="Back to homepage"
@@ -47,11 +94,7 @@ const Header = () => {
               </NavLink>
             </li>
           </ul>
-          <div className="items-center flex-shrink-0 hidden lg:flex">
-            <Link to="/login" className="self-center px-8 py-3 rounded">
-              Sign in
-            </Link>
-          </div>
+          {renderLogin()}
           <button className="p-4 lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
