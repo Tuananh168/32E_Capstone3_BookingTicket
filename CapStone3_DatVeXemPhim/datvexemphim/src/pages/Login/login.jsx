@@ -1,19 +1,32 @@
 import { useFormik } from "formik";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { dangNhapAction } from "../../redux/actions/QuanLyNguoiDungActions";
-import { NavLink } from "react-router-dom";
+import { NavLink, unstable_HistoryRouter, useHistory } from "react-router-dom";
+import * as Yup from "yup";
+import { createBrowserHistory } from "history";
 const Login = (props) => {
   const dispatch = useDispatch();
+  const history = createBrowserHistory();
+
+  const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
 
   const formik = useFormik({
     initialValues: {
       taiKhoan: "",
       matKhau: "",
     },
+    // validationSchema: Yup.object({
+    //   taiKhoan: Yup.string()
+    //     .email("Email không đúng định dạng")
+    //     .required("Bắt buộc : Không được bỏ trống"),
+    //   matKhau: Yup.string()
+    //     .min(8, "Mật khẩu phải nhiều hơn 8 ký tự")
+    //     .required("Bắt buộc : Không được bỏ trống"),
+    // }),
     onSubmit: (values) => {
-      // const action = dangNhapAction(values);
-      // dispatch(action);
+      const action = dangNhapAction(values);
+      dispatch(action);
       console.log("value", values);
     },
   });
@@ -21,7 +34,10 @@ const Login = (props) => {
   // console.log("formik", formik.values);
 
   return (
-    <form className="h-full gradient-form bg-gray-200 md:h-screen">
+    <form
+      onSubmit={formik.handleSubmit}
+      className="h-full gradient-form bg-gray-200 md:h-screen"
+    >
       <div className="container py-12 px-6 h-full">
         <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
           <div className="xl:w-10/12">
@@ -44,27 +60,40 @@ const Login = (props) => {
                       <div className="mb-4">
                         <input
                           onChange={formik.handleChange}
+                          value={formik.values.taiKhoan}
                           name="taiKhoan"
                           type="text"
                           className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                           id="exampleFormControlInput1"
                           placeholder="Username"
                         />
+                        {/* {formik.errors.taiKhoan && formik.touched.taiKhoan && (
+                          <p className="text-red-600 italic">
+                            {formik.errors.taiKhoan}
+                          </p>
+                        )} */}
                       </div>
                       <div className="mb-4">
                         <input
                           name="matKhau"
                           onChange={formik.handleChange}
+                          value={formik.values.matKhau}
                           type="password"
                           className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                           id="exampleFormControlInput1"
                           placeholder="Password"
                         />
+                        {/* {formik.errors.matKhau && formik.touched.matKhau && (
+                          <p className="text-red-600 italic">
+                            {formik.errors.matKhau}
+                          </p>
+                        )} */}
                       </div>
                       <div className="text-center pt-1 mb-12 pb-1">
                         <button
+                          onClick={() => history.push("/home")}
                           className="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
-                          type="button"
+                          type="submit"
                           data-mdb-ripple="true"
                           data-mdb-ripple-color="light"
                           style={{

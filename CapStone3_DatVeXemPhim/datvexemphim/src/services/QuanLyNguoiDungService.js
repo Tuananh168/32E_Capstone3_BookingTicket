@@ -9,8 +9,12 @@ export class QuanLyNguoiDungService extends baseService {
         super()
     }
 
-    dangNhap = (thongTinNguoiDung) => { //Tài Khoản : , Mật Khẩu :
-        return this.post(`/api/QuanLyNguoiDung/DangNhap`, thongTinNguoiDung)
+    dangNhap = (thongTinDangNhap) => { //Tài Khoản : , Mật Khẩu :
+        return this.post(`/api/QuanLyNguoiDung/DangNhap`, thongTinDangNhap)
+    }
+
+    dangKyTaiKhoan = (taiKhoanDangKy) => {
+        return this.post(`/api/QuanLyNguoiDung/DangKy`, taiKhoanDangKy)
     }
 
 

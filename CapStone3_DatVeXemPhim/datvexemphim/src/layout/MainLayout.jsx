@@ -5,7 +5,7 @@ import Footer from "./Footer/Footer";
 import "./MainLayout.css";
 import { Outlet } from "react-router-dom";
 
-const MainLayout = () => {
+const MainLayout = (props) => {
   return (
     <div>
       <Header />

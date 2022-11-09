@@ -4,7 +4,7 @@ import "@tsamantanis/react-glassmorphism/dist/index.css";
 import "../../assets/style_circle/circle.css";
 import { Radio, Space, Tabs } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useLocation, useParams } from "react-router-dom";
+import { Link, NavLink, useLocation, useParams } from "react-router-dom";
 import { SET_CHI_TIET_PHIM } from "../../redux/types/QuanLyRapType";
 import { layThongTinChiTietPhim } from "../../redux/actions/QuanLyRapActions";
 import moment from "moment";
@@ -15,14 +15,13 @@ const Detail = (props) => {
     setTabPosition(e.target.value);
   };
   const { TabPane } = Tabs;
-  const params = useParams();
+
   const dispatch = useDispatch();
+  const params = useParams();
 
   const filmDetail = useSelector((state) => state.QuanLyPhimReducer.filmDetail);
-  console.log("filmDetail: ", filmDetail);
 
   useEffect(() => {
-    console.log(params.id);
     dispatch(layThongTinChiTietPhim(params.id));
   }, []);
 
@@ -40,7 +39,7 @@ const Detail = (props) => {
         style={{ paddingTop: 150, minHeight: "100vh", width: "100%" }}
         effectColor="gray" // required
         color="gray" // default color is white
-        blur={10} // default blur value is 10px
+        blur={5} // default blur value is 10px
         borderRadius={0} // default border radius value is 10px
       >
         <div className="grid grid-cols-12">
@@ -132,7 +131,7 @@ const Detail = (props) => {
                               {cumRap.lichChieuPhim?.map((lichChieu, index) => {
                                 return (
                                   <NavLink
-                                    to="/"
+                                    to={`/checkout/${lichChieu.maLichChieu}`}
                                     key={index}
                                     className="col-span-1 ml-3 border border-2 border-black rounded-xl py-1 bg-orange-300 text-black m-0 hover:bg-orange-400 hover:text-black w-1/3 text-center font-bold"
                                   >
